@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-const { ipcRenderer } = require("electron");
+import { useElectron } from './use-electron';
+
+const electron = useElectron();
 
 const listener = (sender, [index, selected]) => {
   let message = 'You selected ';
@@ -27,16 +29,16 @@ export class Counter extends Component {
       currentCount: this.state.currentCount + 1
     });
     if (this.state.currentCount % 2 === 0) {
-      ipcRenderer.send("information-dialog");
+      electron?.ipcRenderer.send("information-dialog");
     }
   }
 
   componentDidMount() {
-    ipcRenderer.on("information-dialog-reply", listener);
+    electron?.ipcRenderer.on("information-dialog-reply", listener);
   }
 
   componentWillUnmount() {
-    ipcRenderer.off("information-dialog-reply", listener);
+    electron?.ipcRenderer.off("information-dialog-reply", listener);
   }
 
   render() {
