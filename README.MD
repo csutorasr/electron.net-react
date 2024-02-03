@@ -4,10 +4,11 @@ This is a simple example of how to use Electron with React and DotNet Core.
 
 ## Getting Started
 
-You'll need [Node.js (v.12.x)](https://nodejs.org) and [.NET Core SDK](https://www.microsoft.com/net/download/core) installed on your computer in order to start or build this app.
+You'll need [Node.js (v.18.x)](https://nodejs.org) and [.NET SDK](https://dotnet.microsoft.com/en-us/download) installed on your computer in order to start or build this app.
 
 ```bash
 dotnet tool install --global ElectronNET.CLI
+cd electron-part
 electronize start
 ```  
 
